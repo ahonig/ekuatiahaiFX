@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:controller="com.geotechpy.ekuatiahaifx.LoginController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="320.0" styleClass="white-form" stylesheets="@pageDesign.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="320.0" styleClass="white-form" stylesheets="@pageDesign.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geotechpy.ekuatiahaifx.LoginController">
     <children>
         <AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="200.0">
             <children>
@@ -26,9 +26,9 @@
                     </font>
                 </Label>
                 <TextField fx:id="tf_usuario" layoutX="32.0" layoutY="216.0" prefHeight="30.0" prefWidth="255.0" promptText="Usuario" styleClass="textfield" stylesheets="@pageDesign.css" />
-                <PasswordField layoutX="33.0" layoutY="254.0" prefHeight="30.0" prefWidth="255.0" promptText="Contraseña" styleClass="textfield" stylesheets="@pageDesign.css" />
-                <Button layoutX="36.0" layoutY="303.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="255.0" styleClass="btn" stylesheets="@pageDesign.css" text="Iniciar" />
-                <CheckBox layoutX="36.0" layoutY="366.0" mnemonicParsing="false" stylesheets="@pageDesign.css" text="Recordar Usuario" />
+                <PasswordField fx:id="tf_contrasena" layoutX="33.0" layoutY="254.0" prefHeight="30.0" prefWidth="255.0" promptText="Contraseña" styleClass="textfield" stylesheets="@pageDesign.css" />
+                <Button fx:id="btn_iniciar" layoutX="36.0" layoutY="303.0" mnemonicParsing="false" onAction="#login" prefHeight="48.0" prefWidth="255.0" styleClass="btn" stylesheets="@pageDesign.css" text="Iniciar" />
+                <CheckBox fx:id="chk_recordar" layoutX="36.0" layoutY="366.0" mnemonicParsing="false" stylesheets="@pageDesign.css" text="Recordar Usuario" />
             </children>
         </AnchorPane>
     </children>
