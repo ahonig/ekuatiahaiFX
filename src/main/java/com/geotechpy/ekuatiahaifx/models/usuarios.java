@@ -81,8 +81,8 @@ public class usuarios {
             e.printStackTrace();
             return false;
         } finally {
-            preparedStatement.close();
-            resultSet.close();
+            if (preparedStatement != null) preparedStatement.close();
+            if (resultSet != null) resultSet.close();
         }
 
     }

@@ -14,7 +14,10 @@ public class DbUtils {
     private String saltString = "!m3c8C9$D$5M";
     public DbUtils() {
         connection = SqliteConnection.Connector();
-        if ( connection == null ) {System.exit(1);}
+        if ( connection == null ) {
+            System.out.println("Connection is null");
+            System.exit(1);
+        }
     }
 
     public Connection getConnection(){
