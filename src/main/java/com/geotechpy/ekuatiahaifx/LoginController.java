@@ -81,6 +81,8 @@ public class LoginController implements Initializable {
         try {
             if (dbUtils.isLogin(tf_usuario.getText(), tf_contrasena.getText())) {
                 successMessage("Login Ok");
+            } else {
+                errorMessage("EL usuario y/o la contraseña son incorrectos");
             }
         } catch (SQLException e) {
             errorMessage("Error de conexion. "+e.getMessage());
