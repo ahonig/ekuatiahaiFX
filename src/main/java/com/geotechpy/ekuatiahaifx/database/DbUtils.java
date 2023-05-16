@@ -15,7 +15,7 @@ public class DbUtils {
     public DbUtils() {
         connection = SqliteConnection.Connector();
         if ( connection == null ) {
-            System.out.println("Connection is null");
+            System.out.println("No se pudo establecer la conexion.");
             System.exit(1);
         }
     }

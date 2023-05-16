@@ -68,11 +68,10 @@ public class usuarios {
         }
 
         try {
-            String query = "SELECT * FROM usuarios WHERE usua_codigo = ? AND usua_clave = ?";
+            String query = "SELECT 1 FROM usuarios WHERE usua_codigo = ? AND usua_clave = ?";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, user);
             preparedStatement.setString(2,pass);
-            System.out.println(pass);
             resultSet = preparedStatement.executeQuery();
             if ( resultSet.next() ){
                 return true;

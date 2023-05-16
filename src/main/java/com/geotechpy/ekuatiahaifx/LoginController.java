@@ -42,9 +42,6 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if ( dbUtils.isDbConnected()) {
-            System.out.println("Ok");
-        }
         try {
             robot = new Robot();
             for (Node o : anchorPane.getChildren()) {
