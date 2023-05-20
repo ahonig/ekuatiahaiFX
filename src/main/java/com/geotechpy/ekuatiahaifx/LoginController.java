@@ -17,19 +17,18 @@ import javafx.stage.Stage;
 
 import java.awt.Robot;
 import java.awt.AWTException;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.geotechpy.ekuatiahaifx.utils.Utils.errorMessage;
-import static com.geotechpy.ekuatiahaifx.utils.Utils.successMessage;
 
 
 public class LoginController implements Initializable {
-    public DbUtils dbUtils = new DbUtils();
+    private final DbUtils dbUtils = new DbUtils();
     Robot robot;
     @FXML
     private AnchorPane anchorPane;
@@ -83,12 +82,16 @@ public class LoginController implements Initializable {
 
         try {
             if (dbUtils.isLogin(tf_usuario.getText(), tf_contrasena.getText())) {
+
+                Stage stage = (Stage) btn_iniciar.getScene().getWindow();
+                stage.close();
                 FXMLLoader fxmlLoader = new FXMLLoader(EkuatiahaiFXApplication.class.getResource("menu-view.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
-                Stage stage = new Stage();
+                stage = new Stage();
                 stage.setTitle("Iniciar");
-                Image image = new Image(EkuatiahaiFXApplication.class.getResource("favicon-32x32.png").toString());
+                Image image = new Image(Objects.requireNonNull(EkuatiahaiFXApplication.class.getResource("favicon-32x32.png")).toString());
                 stage.getIcons().add(image);
+                stage.setMaximized(true);
                 stage.setScene(scene);
                 stage.show();
             } else {
