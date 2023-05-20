@@ -2,18 +2,24 @@ package com.geotechpy.ekuatiahaifx;
 
 import com.geotechpy.ekuatiahaifx.database.DbUtils;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
 import java.awt.Robot;
 import java.awt.AWTException;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -80,12 +86,21 @@ public class LoginController implements Initializable {
 
         try {
             if (dbUtils.isLogin(tf_usuario.getText(), tf_contrasena.getText())) {
-                successMessage("Login Ok");
+                FXMLLoader fxmlLoader = new FXMLLoader(EkuatiahaiFXApplication.class.getResource("menu-view.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                Stage stage = new Stage();
+                stage.setTitle("Iniciar");
+                Image image = new Image(EkuatiahaiFXApplication.class.getResource("favicon-32x32.png").toString());
+                stage.getIcons().add(image);
+                stage.setScene(scene);
+                stage.show();
             } else {
                 errorMessage("EL usuario y/o la contraseña son incorrectos");
             }
         } catch (SQLException e) {
             errorMessage("Error de conexion. "+e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
 
